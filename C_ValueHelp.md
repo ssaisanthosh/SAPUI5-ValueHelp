@@ -13,11 +13,7 @@
 
 # Files
 
-    /*!
- * ValueHelp
- * Sai Santhosh (10664929) <sai.santhosh@lntinfotech.com>
- * MIT @2020
- */
+    
 sap.ui.define(
 	[
 		"sap/ui/base/Object",
