@@ -121,11 +121,15 @@ sap.ui.define([
 						oData = oEvent.getSource().getTable().getModel().getData().results[sPath];
 					sap.ui.getCore().byId(that.getInput()).setValue(oData[that.getKey()]);
 					if (that.getDependBinding() !== undefined) {
-						for (const value of that.getDependBinding()) {
+						that.getDependBinding().forEach((value, i) => {
 							let sPath = sap.ui.getCore().byId(that.getInput()).getBindingContext("items").getPath(),
 								aRow = sap.ui.getCore().byId(that.getInput()).getParent().getModel("items").getProperty(sPath);
-							aRow[value] = oData[value];
-						}
+							if (typeof value === 'string' || value instanceof String) {
+								aRow[value] = oData[value];
+							} else {
+								aRow[value[Object.keys(value)[0]]] = oData[Object.keys(value)[0]];
+							}
+						});
 						sap.ui.getCore().byId(that.getInput()).getParent().getModel("items").refresh();
 					}
 					if (that.getDependValue() !== undefined) {
