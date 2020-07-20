@@ -1,6 +1,6 @@
 /*!
  * ValueHelp for oData and ajax Call
- * me@ssaisanthosh.com
+ * Version: 1.0.1
  */
 sap.ui.define([
 	"sap/ui/core/Control",
