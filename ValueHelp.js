@@ -8,7 +8,7 @@ sap.ui.define([
 ], function (Control, ValueHelpDialog) {
 	"use strict";
 
-	var valueHelp = Control.extend("com.pih.vendorportal.RFHS.control.valueHelp", {
+	var valueHelp = Control.extend("<<your_project_name>>.valueHelp", {
 		metadata: {
 			properties: {
 				/** Title for Search Help */
