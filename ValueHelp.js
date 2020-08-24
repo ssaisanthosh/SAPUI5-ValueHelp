@@ -1,6 +1,6 @@
 /*!
  * ValueHelp for oData and ajax Call
- * Version: 1.0.1
+ * Version: 1.0.2
  */
 sap.ui.define(["sap/ui/core/Control", "sap/ui/comp/valuehelpdialog/ValueHelpDialog"], function (Control, ValueHelpDialog) {
   "use strict";
@@ -247,7 +247,7 @@ sap.ui.define(["sap/ui/core/Control", "sap/ui/comp/valuehelpdialog/ValueHelpDial
     $.each(that.getCondition(), function (i, v) {
       if (that.getAjaxCall() !== undefined && that.getAjaxCall()) {
         if (v.type !== undefined) {
-          if (v.type === searchHelp.prototype.Condition.Integer) {
+          if (v.type === valueHelp.prototype.Condition.Integer) {
             saFilter.push(v.field + " eq " + v.value);
           } else {
             saFilter.push(v.field + " eq '" + v.value + "'");
