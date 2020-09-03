@@ -1,6 +1,6 @@
 /*!
  * ValueHelp for oData and ajax Call
- * Version: 1.0.2
+ * Version: 1.0.3 
  */
 sap.ui.define(["sap/ui/core/Control", "sap/ui/comp/valuehelpdialog/ValueHelpDialog"], function (Control, ValueHelpDialog) {
   "use strict";
@@ -275,7 +275,7 @@ sap.ui.define(["sap/ui/core/Control", "sap/ui/comp/valuehelpdialog/ValueHelpDial
       that.getParent().byId(that.getBusyIndicator()).setBusy(true);
     }
     let sURL = that.getModel(this.getDataSource()).sServiceUrl + that.getEntity() + sFilter;
-    if (oFilterValue !== undefined) {
+    if (oFilterValue !== undefined && oFilterValue !== "") {
       sURL += "&$search=" + oFilterValue;
     }
     if (that.getAjaxCall() !== undefined && that.getAjaxCall()) {
