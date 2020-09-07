@@ -242,7 +242,7 @@ sap.ui.define(["sap/ui/core/Control", "sap/ui/comp/valuehelpdialog/ValueHelpDial
     const that = this;
     let oFilters = [],
       saFilter = [],
-      sFilter = "?$filter=",
+      sFilter = "",
       oSearchHelpDialog = that._getSearchHelpDialog();
     $.each(that.getCondition(), function (i, v) {
       if (that.getAjaxCall() !== undefined && that.getAjaxCall()) {
@@ -267,8 +267,9 @@ sap.ui.define(["sap/ui/core/Control", "sap/ui/comp/valuehelpdialog/ValueHelpDial
           saFilter.push(v + " eq '" + oFilterValue + "'");
         }
       });
+     sFilter = "?$filter=";
+     sFilter += saFilter.join(" and ");
     }
-    sFilter += saFilter.join(" and ");
 
     let sEntity = this.getDataSource() === undefined ? "/" + that.getEntity() + "Set" : "/" + that.getEntity();
     if (that.getBusyIndicator() !== undefined) {

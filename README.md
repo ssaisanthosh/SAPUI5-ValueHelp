@@ -1,6 +1,6 @@
 # SAPUI5 ValueHelp
 ![](https://img.shields.io/badge/SAPUI5-Library-blue)
-![](https://badgen.net/badge/Version/1.0.3/green)
+![](https://badgen.net/badge/Version/1.0.4/green)
 
 ## Features
 - Ajax RestAPI Call Handler
@@ -8,6 +8,8 @@
 
 
 ## Change Log
++ 1.0.4
+  + Filter Functionality for SAP CAP Call oData.
 + 1.0.3
   + Search Functionality for AJAX Call.
 + 1.0.2
