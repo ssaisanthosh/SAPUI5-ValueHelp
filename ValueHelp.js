@@ -5,7 +5,7 @@
 sap.ui.define(["sap/ui/core/Control", "sap/ui/comp/valuehelpdialog/ValueHelpDialog"], function (Control, ValueHelpDialog) {
   "use strict";
 
-  var valueHelp = Control.extend("<<your_project_name>>.valueHelp", {
+  var valueHelp = Control.extend("sunsai.sapui5.valueHelp", {
     metadata: {
       properties: {
         /** Title for Search Help */
