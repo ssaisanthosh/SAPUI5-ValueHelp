@@ -287,15 +287,6 @@ sap.ui.define(["sap/ui/core/Control", "sap/ui/comp/valuehelpdialog/ValueHelpDial
         url: sURL,
         async: false,
         success: function (odata, textStatus, jqXHR) {
-          console.log(odata);
-          // oSearchHelpDialog.open();
-          // // then set model & bind Aggregation
-          // oSearchHelpDialog.bindAggregation("items", "/results", that._getColumnTemplates());
-          // oSearchHelpDialog.setModel(new sap.ui.model.json.JSONModel({
-          // 	results: odata.value
-          // }));
-          // that.getParent().byId(that.getBusyIndicator()).setBusy(false);
-
           oSearchHelpDialog.setModel(
             new sap.ui.model.json.JSONModel({
               results: odata.value,
@@ -351,7 +342,6 @@ sap.ui.define(["sap/ui/core/Control", "sap/ui/comp/valuehelpdialog/ValueHelpDial
           search: oFilterValue !== undefined ? oFilterValue : "",
         },
         success: function (odata) {
-          console.log(odata);
           // then set model & bind Aggregation
           oSearchHelpDialog.getTable().setModel(new sap.ui.model.json.JSONModel(odata));
           let jColumn = new sap.ui.model.json.JSONModel({
