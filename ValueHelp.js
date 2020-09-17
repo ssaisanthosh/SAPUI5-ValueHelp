@@ -1,6 +1,6 @@
 /*!
  * ValueHelp for oData and ajax Call
- * Version: 1.0.3 
+ * Version: 1.0.3
  */
 sap.ui.define(["sap/ui/core/Control", "sap/ui/comp/valuehelpdialog/ValueHelpDialog"], function (Control, ValueHelpDialog) {
   "use strict";
@@ -263,12 +263,13 @@ sap.ui.define(["sap/ui/core/Control", "sap/ui/comp/valuehelpdialog/ValueHelpDial
     // Ajax Call oData
     if (oFilterSearch) {
       $.each(that.getFilter(), function (i, v) {
-        if (that.getAjaxCall() !== undefined && that.getAjaxCall()) {
-          saFilter.push(v + " eq '" + oFilterValue + "'");
+        if (that.getAjaxCall() !== undefined && that.getAjaxCall() && oFilterValue.toString().trim().length > 0) {
+          // saFilter.push(v + " eq '" + oFilterValue + "'");           // Version 1.0.4 Change
+          saFilter.push("contains(" + v + ",'" + oFilterValue + "')"); // Version 1.0.4 Change
         }
       });
-     sFilter = "?$filter=";
-     sFilter += saFilter.join(" and ");
+      sFilter = "?$filter=";
+      sFilter += saFilter.join(" and ");
     }
 
     let sEntity = this.getDataSource() === undefined ? "/" + that.getEntity() + "Set" : "/" + that.getEntity();
@@ -276,7 +277,7 @@ sap.ui.define(["sap/ui/core/Control", "sap/ui/comp/valuehelpdialog/ValueHelpDial
       that.getParent().byId(that.getBusyIndicator()).setBusy(true);
     }
     let sURL = that.getModel(this.getDataSource()).sServiceUrl + that.getEntity() + sFilter;
-    if (oFilterValue !== undefined && oFilterValue !== "") {
+    if (oFilterValue !== undefined && oFilterValue !== "" && oFilterValue.toString().trim().length > 0) {
       sURL += "&$search=" + oFilterValue;
     }
     if (that.getAjaxCall() !== undefined && that.getAjaxCall()) {
